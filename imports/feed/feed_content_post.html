@@ -1,0 +1,169 @@
+<template name="feed_content_post">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/at.js/1.5.4/css/jquery.atwho.min.css"   rel="stylesheet">
+   <div id="compose-card" class="card bg-black is-new-content">
+      <!-- Top tabs -->
+      <div class="tabs-wrapper">
+         <div class="tabs is-boxed is-fullwidth margin-0">
+            <ul class="border-0">
+               <!-- Close X button -->
+               <li class="close-wrap bg-white">
+                  <span class="close-publish margin-0">
+                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  </span>
+               </li>
+            </ul>
+         </div>
+         <!-- Tab content -->
+         <div class="tab-content">
+            <!-- Compose form -->
+            <div class="compose">
+               <div class="compose-form">
+                  {{#each fetch_logged_in_user}}
+                  <div class="avatar-wrap">
+                     <img src="{{profile_picture}}" data-demo-src="{{profile_picture}}" alt="{{name}}'s Profile Image'">
+                  </div>
+                  {{/each}}
+                  <div class="control">
+                     <textarea id="publish" class="textarea color-placeholder color-white bg-transparent"  rows="3" placeholder="Share your thoughts ..."></textarea>
+                  </div>
+               </div>
+            </div>  
+            <!-- /Compose form -->
+            <div class="modal-uploader">
+               <div class="columns is-multiline d-flex-mobile" id="previews">
+                  <div id="uploading_data_div" class="column is-12 is-template img-loader-feed display_hidden">
+                     <div    class=""> 
+                        {{> uploading_data_loader}}
+                     </div>
+                  </div>
+                  <!-- {{#if equals 'media' post_type}} -->
+                  {{#each total_uploaded_images}}    
+                  <div id="template" class="column is-one-fifth is-template">
+                     <div class="preview-box">
+                        <div class="remove-button remove_image" data-dz-remove="">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        </div>
+                        {{#if equals media_type 'image'}}
+                        <div>
+                           <span class="preview">
+                              <img src="{{source_link}}" data-dz-thumbnail="{{source_link}}" alt="">
+                           </span>    
+                        </div>
+                        {{else}}
+                        <video class="preview">
+                           <source src="{{source_link}}" type="video/mp4">
+                        </video>
+                        {{/if}}
+                     </div>
+                  </div>
+                  {{/each}}
+                  <!-- {{else if equals 'metadata_url' post_type}} -->
+                  <div class="card is-post display_hidden" id="url_metadata_div">
+                     <!-- Main wrap -->
+                     <div class="content-wrap">
+                        <!-- Post body -->
+                        <div class="card-body">
+                              <div class="remove-button remove_meta pull-right" data-dz-remove="">
+                                   <!--  <i class="mdi mdi-close"></i> -->
+                                   <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                                 </div>
+                           <!-- Post body text -->
+                           <div class="post-text">
+                              <!-- Featured youtube video -->
+                              <div class="post-link is-video">
+                                 <!-- Link image -->
+                                 <div class="link-image">
+                                    <img id="metadata_image"  alt="">
+                                    <div class="video-overlay"></div>
+                                    <!-- <a class="video-button" data-fancybox="" href="">
+                                    <img src="/assets/images/icons/video/play.svg" alt="">
+                                    </a> -->
+                                 </div>
+                                 <!-- Link content -->
+                                 <div class="link-content">
+                                    <h4>
+                                       <a id="metadata_url" target="_blank"  ></a>
+                                       <a id="metadata_title" target="_blank"></a>
+                                    </h4>
+                                    <p id="metadata_description"> </p>
+                                    <small id="metadata_source"></small>
+                                 </div>
+                              </div>
+                              
+                           </div>
+                           <!-- /Post body -->
+                        </div>
+                        <!-- /Main wrap -->
+                     </div>
+                  </div>
+                  <!-- {{/if}} -->
+               </div>
+            </div>
+            <!-- General basic options -->
+            <div id="basic-options" class="compose-options bg-transparent">
+               <!-- Upload action -->
+               <div class="">
+                  <a class="compose-option" id="add_photos_link">
+                  <span class="icon is-small is-midle color-white">  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></span>
+                  <span style="" class="is-hidden-mobile">&nbsp;&nbsp;Add Image</span>
+                  <input type="file" id="add_photos_file_picker_" multiple accept="image/*" name="pro-image" style="display: none !important;" class="form-control">
+                  </a>
+               </div>
+               <!-- Mood action -->
+               <!-- Upload action --> 
+               
+               <div  class="compose-option" id="add_video_link" >
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 color-white"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  <span class="is-hidden-mobile"> &nbsp;Add Video</span>
+                  <input type="file"  id="add_videos_file_picker" accept="video/mp4,video/x-m4v,video/*"
+                     name="pro-image" style="display: none !important;" class="form-control">
+               </div>
+               <a id="publish-button" type="" class="btn-trans accent-button pull-right btn-right-compose is-disabled" style="margin-right: 20px;">
+               Post<i id="publish_loader" class="fa fa-spinner fa-pulse fa-1x display_hidden fa-fw"> &nbsp;</i>
+               </a> 
+            </div>
+            <!-- /General basic options -->
+         </div>          
+      </div>
+      <script>
+         // $("#publish").keyup(function(){
+         //     var cval=$("#publish").val();
+         //     var clength=cval.length;
+         //     console.log(clength);
+         //     if(clength<30){
+         //         $("#publish").css('font-size','25px');
+         //     }
+         //     else if(clength>30 && clength<=60){
+         //         $("#publish").css('font-size','20px');
+         //     }else{
+         //         $("#publish").css('font-size','17px');
+         //     }
+         // })
+      </script>
+   </div>
+
+
+   <div id="remove-modal" class="modal upload-crop-cover-modal is-small has-light-bg">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+         <div class="card">
+            <div class="fc-content p-5 rounded fancybox-content" style="display: inline-block;">
+               <h2 class="title mb-10">Discard Post? </h2>
+               <p id="remove_text">Sure, you want to discard post  </p>
+               <p class="has-text-right pull-right buttons mt-10">
+                  <a data-value="0" data-fancybox-close=""  class="button close_discard">Cancel</a>
+                  <a data-value="1" data-fancybox-close="" id="confirm_discard" class="button is-solid accent-button  raised">Confirm <i id="remove_follower_id" class="fa display_hidden fa-spinner fa-pulse fa-1x fa-fw"></i> </a>
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   {{> sAlert}}
+</template>

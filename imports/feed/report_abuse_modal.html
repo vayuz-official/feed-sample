@@ -1,0 +1,78 @@
+<template name="report_abuse">
+        <div id="report_abuse-modal" class="modal report_abuse-modal is-xsmall has-light-bg">
+           <div class="modal-background"></div>
+           <div class="modal-content">
+              <div class="card margin-bottom-0 fc-content p-10 rounded fancybox-content">
+                 <div class="card-heading has-text-right">
+                    <div>
+                       <h3>Why you want to report this?</h3>
+                    </div>
+                    <!-- Close X button -->
+                    <div class="close-wrap">
+                       <span class="close-modal">
+                       <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                       </span>
+                    </div>
+                 </div>
+                 <div class="card-body">
+                    <div class="control">
+                       <div class="basic-checkbox">
+                          <input value="It's inappropriate" class="styled-checkbox" id="styled-checkbox-2" type="checkbox" >
+                          <label for="styled-checkbox-2">It's inappropriate</label>
+                       </div>
+                      
+                       <!--Basic Checkbox-->
+                       <div class="basic-checkbox is-accent">
+                          <input value="It's fake, spam or scam" class="styled-checkbox" id="styled-checkbox-3" type="checkbox" >
+                          <label for="styled-checkbox-3">It's fake, spam or scam</label>
+                       </div>
+                       <div class="basic-checkbox is-accent">
+                          <input value="It's abuse or harmful" class="styled-checkbox" id="styled-checkbox-4" type="checkbox">
+                          <label for="styled-checkbox-4">It's abuse or harmful</label>
+                       </div>
+                          <p  id="invalid_title" class="display_hidden invalid_feedback " > Please select checbox </p>
+                       <!--  <textarea class="textarea comment-textarea" rows="1" placeholder="Say something about this ..."></textarea> -->
+                    </div>
+                 </div>
+                 <div class="has-text-right pull-right buttons mt-10">
+                    <div class="button-wrap" style="width: 100%">
+                       <button type="button" class="button mt-0 close-modal">Cancel</button>
+                         <a class="button is-solid primary-button mt-0 raised" id="submit_report_as_abuse" > Report &nbsp; <i id="loader" class="fa display_hidden fa-spinner fa-pulse fa-1x fa-fw"></i></a>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <script type="text/javascript"></script>
+        </div>
+      
+        <div id="delete-post-modal" class="modal upload-crop-cover-modal is-small has-light-bg">
+              <div class="modal-background"></div>
+              <div class="modal-content">
+                 <div class="card">
+                    <div class="fc-content p-5 rounded fancybox-content" style="display: inline-block;">
+                       <h2 class="title mb-10">Remove this post? </h2>
+                       <p id="remove_text">Are you sure you want to remove this post?  </p>
+                       <p class="has-text-right pull-right buttons mt-2">
+                          <a data-value="0" data-fancybox-close=""  class="button mt-0 close-modal">Cancel</a>
+                          <a data-value="1" data-fancybox-close="" id="confirm_post_removal" class="button mt-0 is-solid accent-button  raised">Confirm &nbsp; <i id="remove_post_loader" class="fa display_hidden fa-spinner fa-pulse fa-1x fa-fw"></i> </a>
+                       </p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div id="share-modal-social" class="modal share-modal is-xsmall">
+                 <div class="modal-background"></div>
+                 <div class="modal-content fancybox-slide--html  bg-tranparent">
+                    <div class="fancybox-share fancybox-content width-100">
+                       <h1>Share</h1>
+                      
+                          <a href="{{facebook_sharing_link}}" target="_blank" class="fancybox-share__button fancybox-share__button--fb color-white"> <i data-feather="facebook"></i><span> Facebook</span></a>
+                          <a href="{{twitter_sharing_link}}"  target="_blank" class="fancybox-share__button fancybox-share__button--tw color-white"> <i data-feather="twitter"></i><span> Twitter</span></a>
+                          <a href="{{linkedin_sharing_link}}" target="_blank" class="fancybox-share__button fancybox-share__button--pt color-white"> <i data-feather="linkedin"></i><span> Linkedin</span></a>
+                       
+                       <button type="button" data-fancybox-close="" class="fancybox-button fancybox-close-small close-modal close_share_button_model" title="Close"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                    </div>
+                 </div>            
+              </div>  
+              {{> sAlert}}
+     </template>

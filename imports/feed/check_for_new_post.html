@@ -1,0 +1,55 @@
+<template name="check_for_new_posts_available">
+	<style>
+		.new-posts:hover{
+            color: #333 !important;
+            background-color: #fff !important;
+            opacity: 1!important;
+        }
+        .new-posts{
+            color: #fff !important;
+            background-color: #ff0a00;
+            border: 0px solid #d9cc00;
+            border-radius: 25px !important;
+            padding: 5px 15px !important;
+            z-index: +999;
+        }
+        .fixed{
+                top: 60px;
+                position: fixed;
+                z-index: +999;
+                    top: 60px;
+                position: fixed;
+                z-index: +999;
+                transform: translate(-50%, 10px);
+                left: 50%;
+                
+        }
+        /*.fixed .new-posts{
+            left: 50%;
+                transform: translate(-50%, 0px);
+        }*/
+	</style>
+	{{#if check_if_current_path_is_feed}}
+	<div id="new_posts_available_div" class="media-content display_hidden pointer new-posts-btnn">
+
+        <div class="field">
+            <div class="actions mt-10 mb-10 text-center">
+                <a class="button is-solid new-posts"> <i data-feather="corner-left-up"></i> New Posts <i class="fa fa-spinner fa-pulse fa-1x fa-fw display_hidden" id="post_fetcher_loader"></i></a> 
+            </div>
+        </div>             
+    </div>   
+    {{/if}}
+    <script type="text/javascript">
+        var new_post_btn = $(".new-posts-btnn");
+            $(window).scroll(function() {   
+            // alert('hello'); 
+            var scroll = $(window).scrollTop();
+                if (scroll >= window.innerHeight) {
+                      new_post_btn.addClass("fixed");
+                } 
+                else {
+                      new_post_btn.removeClass("fixed");
+                }
+            });
+    </script>
+</template>

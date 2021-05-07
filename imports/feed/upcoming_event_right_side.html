@@ -1,0 +1,28 @@
+<template name="upcoming_event_right_side">
+    
+	 {{#if Template.subscriptionsReady}}
+
+	 {{#if fetch_all_upcoming_events}}
+		<div class="card is-hidden-mobile">
+          <div class="card-heading is-bordered">
+              <h4>Upcoming Events</h4>
+          </div>
+          <div class="card-body padding-0 pb-5">
+               {{#each fetch_all_upcoming_events}}
+              <div class="add-friend-block transition-block event_detail_redirection">
+                  <img src="{{cover_image}}" data-demo-src="{{cover_image}}" data-user-popover="9" alt="" class="height-blogs pointer">
+                  <a  class="page-meta">
+                      <span class="blog_title">{{event_title}}</span>
+                      <span class="author_name color-red">{{from_date}} - {{to_date}} </span>
+                  </a>
+              </div>
+              {{/each}}   
+          </div>
+        </div>
+        {{else}}
+
+        	{{/if}}
+        {{else}}
+        	    {{> shimmer_feed_right}}
+        {{/if}}
+</template>

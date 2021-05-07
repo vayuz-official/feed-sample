@@ -1,0 +1,106 @@
+<template name="feed">
+   <script type="text/javascript" src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.min.js"></script>
+   <script type="text/javascript" src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.min.js"></script>
+   <script type="text/javascript" src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.min.js"></script>
+   <div class="app-overlay"></div>
+   <style>
+      .left .is-active{
+      top: 80px !important;  
+      }
+      .right .is-active{
+      top: 80px !important;
+      }
+      .card .card-footer{
+      margin: 0    
+      }
+      /**
+      * FilePond Custom Styles
+      */
+      .filepond--drop-label {
+      color: #4c4e53;
+      }
+      .filepond--label-action {
+      text-decoration-color: #babdc0;
+      }
+      .filepond--panel-root {
+      border-radius: 2em;
+      background-color: #edf0f4;
+      height: 1em;
+      }
+      .filepond--item-panel {
+      background-color: #595e68;
+      }
+      .filepond--drip-blob {
+      background-color: #7f8a9a;
+      }
+      .modal-uploader{
+      padding:0px 16px 10px;
+      }
+      #uploading_data_div{
+      text-align:center !important; 
+      }  
+       
+      .close-publish{
+         position: absolute;
+         top: 5px;
+         right: 5px;
+      }      
+      @media only screen and (min-width: 1020px){
+      .compose-card .tabs-wrapper .modal-uploader{}
+      } 
+      @media only screen and (min-width: 768px) and (max-width: 1023px){
+      .hide-tab{
+         display: none !important;
+      }      
+      .width-feed-tab{
+         width:100% !important;
+      }
+      .navbar .navbar-item.is-icon .icon-link{
+         padding: 10px 0px;
+      }
+   </style>  
+   <div class="view-wrapper admin-bg-darkgray">
+        <div class="bg-profile border-radius-25">
+            <div class="is-news videos-wrapper">   
+      <div id="main-feed" class="">
+         <div id="activity-feed" class="view-wrap true-dom" style="padding-top: 0px;">
+            <div class="columns">    
+               <div class="column is-3 is-hidden-mobile hide-tab pl-0-desktop left-sidebar">
+                  <div class="content">
+                     {{> Template.dynamic template=short_profile }}
+                  </div>
+               </div>                       
+               <div class="column is-6 main-content width-feed-tab">
+                    {{> Template.dynamic template=feed_content_post }}
+                    {{> Template.dynamic template=feed_listing data="all" }}
+               </div>
+               <div class="column is-3 hide-tab left-sidebar pr-0 is-hidden-mobile">            
+                  <div class="content">
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+         {{> sAlert}}
+      </div>
+
+      </div>
+   </div>
+</div>
+
+
+   <script type="text/javascript">
+         try{
+            $.getScript("/js/stick_loader.js",function(){
+                $('.left-sidebar').StickySidebar({
+                       additionalMarginTop: 100
+                 });     
+            })
+         }catch(e){
+            console.log("StickySidebar Exception");
+            console.log(e);
+            console.log("Error");
+        }
+    </script>
+</template>
+

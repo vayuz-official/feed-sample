@@ -1,0 +1,1 @@
+import './short-profile.html';

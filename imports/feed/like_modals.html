@@ -1,0 +1,39 @@
+<template name="like_modals">
+    <div id="all_likes_modal" class="modal user-photos-modal is-medium has-light-bg">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+           <!-- Card -->
+           <div class="card">
+              <div class="card-heading">
+                 <h3>Likes  </h3>
+                 <!-- Close X button -->
+                 <div class="close-wrap">
+                    <span class="close-modal">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </span>
+                 </div>
+              </div>
+              <!-- Card body -->
+              <div class="card">
+                 <div class="card-body no-padding">
+                    <!-- Suggested friend -->
+                    {{#each fetch_all_people_who_liked}}
+                    <div class="add-friend-block transition-block">
+                       <img src="{{profile_picture}}" data-demo-src="{{profile_picture}}" data-user-popover="9" alt="">
+                       <div class="page-meta">
+                          <span>{{name}}</span>
+                          <span>{{province}}</span>
+                       </div>
+                       
+                    </div>
+                    {{else}}
+                    {{>no_likes}}
+                    {{/each}} 
+                 </div>
+              </div>
+             
+           </div>
+        </div>
+     </div>
+
+</template>

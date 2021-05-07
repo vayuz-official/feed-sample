@@ -1,0 +1,931 @@
+<template name="feed_detail">
+  <style type="text/css">
+    .likes-count {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      -ms-flex-align: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .likes-count span {
+      display: block;
+      font-size: 0.9rem;
+      color: #ec3e37;
+      margin: 0 5px;
+    }
+    .like-count svg {
+      position: relative;
+      top: -1px;
+      height: 14px;
+      width: 14px;
+      stroke: #ec3e37;
+    }
+    .field .actions {
+      text-align: right;
+    }
+    .filters-panel .input,
+    .textarea,
+    .select select {
+      color: #333 !important;
+    }
+    .image-height-3 .masonry-column-left-4 img {
+      height: 410px !important;
+    }
+    .image-height-3 .masonry-column-right-4 img {
+      height: 200px !important;
+    }
+  </style>
+  <!-- Feed page main wrapper -->
+  <div class="view-wrapper admin-bg-darkgray">
+    <div class="bg-profile border-radius-25">
+      <div class="is-news videos-wrapper">
+        <div id="activity-feed" class="view-wrap">
+          <!-- {{>shimmer_feed_detail}} -->
+          <div class="columns">
+            <!-- Middle column -->
+            <div class="column is-9 main-content">
+              {{#each fetch_feed_post_based_on_post_id}}
+              <div class="card is-post">
+                <!-- Main wrap -->
+                <div class="content-wrap">
+                  <!-- Post header -->
+                  {{#each user_data}}
+                  <div class="card-heading">
+                    <!-- User meta -->
+                    <div class="user-block">
+                      <div class="image">
+                        <img
+                          class="redirect_to_profile"
+                          title="{{name}}"
+                          src="{{profile_picture}}"
+                          data-demo-src="{{profile_picture}}"
+                          data-user-popover="1"
+                          alt=""
+                        />
+                      </div>
+                      <div class="user-info">
+                        <a class="redirect_to_profile">
+                          {{name}} {{#unless equals user_type 'ASSOCIATION'}}
+                          {{#if premium_user}}<img
+                            class="premium_badge"
+                            src="/frontend-assets/images/checked.png"
+                          />{{/if}}{{/unless}}
+                        </a>
+                        <span class="time">{{user_type}}</span>
+                        <span class="time"
+                          >{{calculate_time_difference ../created_at}}</span
+                        >
+                      </div>
+                    </div>
+                    <!-- Right side dropdown -->
+                    <!-- /includes/pages/feed/dropdowns/feed-post-dropdown.html -->
+                    <div
+                      id="feed_dropdown_{{feed_post_id}}"
+                      class="dropdown is-spaced is-right is-neutral"
+                    >
+                      <div>
+                        <div id="three_dots" class="button">
+                          <!-- <i data-feather="more-vertical"></i> -->
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-more-vertical"
+                          >
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="12" cy="5" r="1"></circle>
+                            <circle cx="12" cy="19" r="1"></circle>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                          {{#if equals user_id logged_in_user}}
+                          <a class="dropdown-item">
+                            <div id="edit_post" class="media">
+                              <svg
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="css-i6dzq1"
+                              >
+                                <path d="M12 20h9"></path>
+                                <path
+                                  d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                                ></path>
+                              </svg>
+                              <div class="media-content">
+                                <h3>Edit</h3>
+                                <small>Edit this post</small>
+                              </div>
+                            </div>
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            <div
+                              id="delete_post"
+                              post_id="{{feed_post_id}}"
+                              class="media"
+                            >
+                              <svg
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="css-i6dzq1"
+                              >
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                  d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                                ></path>
+                                <line x1="10" y1="11" x2="10" y2="17"></line>
+                                <line x1="14" y1="11" x2="14" y2="17"></line>
+                              </svg>
+                              <div class="media-content">
+                                <h3>Delete</h3>
+                                <small>Remove this post</small>
+                              </div>
+                            </div>
+                          </a>
+                          {{else}}
+                          <!--  <hr class="dropdown-divider"> -->
+                          <a
+                            href="javascript:void(0);"
+                            class="dropdown-item small-fab share-fab"
+                            id="report_abused_modal"
+                          >
+                            <div class="media">
+                              <svg
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="css-i6dzq1"
+                              >
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                              </svg>
+                              <div class="media-content">
+                                <h3>Report abuse</h3>
+                                <small>In case of inappropriate content.</small>
+                              </div>
+                            </div>
+                          </a>
+                          {{/if}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {{/each}}
+                  <!-- /Post header -->
+                  <!-- Post body -->
+                  <!-- Post body text -->
+                  <div class="card-body">
+                    <div
+                      id="hidden_text_field_{{feed_id}}"
+                      class="media-content display_hidden"
+                    >
+                      <div class="field">
+                        <p class="control">
+                          <textarea
+                            id="updated_text_{{feed_id}}"
+                            class="textarea comment-textarea"
+                            rows="3"
+                            placeholder="Type here your thoughts ..."
+                          >
+{{replace_content content}}</textarea
+                          >
+                        </p>
+                        <div class="actions mt-10">
+                          <a class="button is-solid" id="cancel_editing"
+                            >Cancel</a
+                          >
+                          <a
+                            class="button is-solid primary-button raised"
+                            id="save_changes"
+                            ><i
+                              id="update_post_loader{{feed_id}}"
+                              class="fa display_hidden fa-spinner fa-pulse fa-1x fa-fw"
+                            ></i>
+                            Update</a
+                          >
+                        </div>
+                      </div>
+                      <!-- Additional actions -->
+                    </div>
+                    <!-- Post body text -->
+                    {{#if metadata_post}}
+                    <div class="post-text">
+                      <!-- Featured youtube video -->
+                      {{#if metadata_details.metadata_image}}
+                      <div class="post-link is-video">
+                        <!-- Link image -->
+                        <div class="link-image">
+                          <img
+                            src="{{metadata_details.metadata_image}}"
+                            data-demo-src="{{metadata_details.metadata_image}}"
+                            alt=""
+                          />
+                          <div class="video-overlay"></div>
+                          <a
+                            class="video-button"
+                            data-fancybox=""
+                            href="{{metadata_details.metadata_url}}"
+                          >
+                            <img src="/frontend-assets/icons/play.svg" alt="" />
+                          </a>
+                        </div>
+                        <!-- Link content -->
+                        <div class="link-content">
+                          <h4>
+                            <a href="{{metadata_details.metadata_url}}"
+                              >{{metadata_details.metadata_title}}</a
+                            >
+                          </h4>
+                          <p>{{metadata_details.metadata_description}}</p>
+                          <small>{{metadata_details.metadata_source}}</small>
+                        </div>
+                        <!-- Post actions -->
+                        <!-- /includes/pages/feed/buttons/feed-post-actions.html -->
+                      </div>
+                      {{/if}}
+                      <p id="visible_post_content_{{feed_id}}">{{{content}}}</p>
+                    </div>
+                    {{else}}
+                    <div class="post-text">
+                      <div class="post-image">
+                        <!-- CSS masonry wrap -->
+                        {{#if check_for_length_5 post_images }}
+                        <div class="masonry-grid">
+                          <!-- Left column -->
+                          <div
+                            class="masonry-column-left masonry-column-left-3"
+                          >
+                            <a
+                              data-fancybox="post3"
+                              data-lightbox-type="comments"
+                              data-thumb="{{fetch_array_position post_images 0}}"
+                              href="{{fetch_array_position post_images 0}}"
+                              data-demo-href="{{fetch_array_position post_images 0}}"
+                            >
+                              {{#if check_media_type_video post_images 0}}
+                              <video
+                                controls
+                                src="{{fetch_array_position post_images 0}}"
+                                data-demo-src="{{fetch_array_position post_images 0}}"
+                              ></video>
+                              {{else}}
+                              <img
+                                src="{{fetch_array_position post_images 0}}"
+                                data-demo-src="{{fetch_array_position post_images 0}}"
+                                alt=""
+                              />
+                              {{/if}}
+                            </a>
+                            <a
+                              data-fancybox="post3"
+                              data-lightbox-type="comments"
+                              data-thumb="{{fetch_array_position post_images 1}}"
+                              href="{{fetch_array_position post_images 1}}"
+                              data-demo-href="{{fetch_array_position post_images 1}}"
+                            >
+                              {{#if check_media_type_video post_images 1}}
+                              <video
+                                controls
+                                src="{{fetch_array_position post_images 1}}"
+                                data-demo-src="{{fetch_array_position post_images 1}}"
+                              ></video>
+                              {{else}}
+                              <img
+                                src="{{fetch_array_position post_images 1}}"
+                                data-demo-src="{{fetch_array_position post_images 1}}"
+                                alt=""
+                              />
+                              {{/if}}
+                            </a>
+                          </div>
+                          <!-- Right column -->
+                          <div
+                            class="masonry-column-right masonry-column-right-3"
+                          >
+                            <a
+                              data-fancybox="post3"
+                              data-lightbox-type="comments"
+                              data-thumb="{{fetch_array_position post_images 2}}"
+                              href="{{fetch_array_position post_images 2}}"
+                              data-demo-href="{{fetch_array_position post_images 2}}"
+                            >
+                              {{#if check_media_type_video post_images 2}}
+                              <video
+                                controls
+                                src="{{fetch_array_position post_images 2}}"
+                                data-demo-src="{{fetch_array_position post_images 2}}"
+                              ></video>
+                              {{else}}
+                              <img
+                                src="{{fetch_array_position post_images 2}}"
+                                data-demo-src="{{fetch_array_position post_images 2}}"
+                                alt=""
+                              />
+                              {{/if}}
+                            </a>
+                            <a
+                              data-fancybox="post3"
+                              data-lightbox-type="comments"
+                              data-thumb="{{fetch_array_position post_images 3}}"
+                              href="{{fetch_array_position post_images 3}}"
+                              data-demo-href="{{fetch_array_position post_images 3}}"
+                            >
+                              {{#if check_media_type_video post_images 3}}
+                              <video
+                                controls
+                                src="{{fetch_array_position post_images 3}}"
+                                data-demo-src="{{fetch_array_position post_images 3}}"
+                              ></video>
+                              {{else}}
+                              <img
+                                src="{{fetch_array_position post_images 3}}"
+                                data-demo-src="{{fetch_array_position post_images 3}}"
+                                alt=""
+                              />
+                              {{/if}}
+                            </a>
+                            <a
+                              data-fancybox="post3"
+                              data-lightbox-type="comments"
+                              data-thumb="{{fetch_array_position post_images 4}}"
+                              href="{{fetch_array_position post_images 4}}"
+                              data-demo-href="{{fetch_array_position post_images 4}}"
+                            >
+                              {{#if check_media_type_video post_images 4}}
+                              <video
+                                controls
+                                src="{{fetch_array_position post_images 4}}"
+                                data-demo-src="{{fetch_array_position post_images 4}}"
+                              ></video>
+                              {{else}}
+                              <img
+                                src="{{fetch_array_position post_images 4}}"
+                                data-demo-src="{{fetch_array_position post_images 4}}"
+                                alt=""
+                              />
+                              {{/if}}
+                            </a>
+                          </div>
+                        </div>
+                        {{else if check_for_length_4 post_images}}
+                        <div class="post-image">
+                          <!-- CSS masonry wrap -->
+                          <div class="masonry-grid">
+                            <!-- Left column -->
+                            <div
+                              class="masonry-column-left masonry-column-half"
+                            >
+                              <a
+                                data-fancybox="post3"
+                                data-lightbox-type="comments"
+                                data-thumb="{{fetch_array_position post_images 0}}"
+                                href="{{fetch_array_position post_images 0}}"
+                                data-demo-href="{{fetch_array_position post_images 0}}"
+                              >
+                                {{#if check_media_type_video post_images 0}}
+                                <video
+                                  controls
+                                  src="{{fetch_array_position post_images 0}}"
+                                  data-demo-src="{{fetch_array_position post_images 0}}"
+                                ></video>
+                                {{else}}
+                                <img
+                                  src="{{fetch_array_position post_images 0}}"
+                                  data-demo-src="{{fetch_array_position post_images 0}}"
+                                  alt=""
+                                />
+                                {{/if}}
+                              </a>
+                              <a
+                                data-fancybox="post3"
+                                data-lightbox-type="comments"
+                                data-thumb="{{fetch_array_position post_images 1}}"
+                                href="{{fetch_array_position post_images 1}}"
+                                data-demo-href="{{fetch_array_position post_images 1}}"
+                              >
+                                {{#if check_media_type_video post_images 1}}
+                                <video
+                                  controls
+                                  src="{{fetch_array_position post_images 1}}"
+                                  data-demo-src="{{fetch_array_position post_images 1}}"
+                                ></video>
+                                {{else}}
+                                <img
+                                  src="{{fetch_array_position post_images 1}}"
+                                  data-demo-src="{{fetch_array_position post_images 1}}"
+                                  alt=""
+                                />
+                                {{/if}}
+                              </a>
+                            </div>
+                            <!-- Right column -->
+                            <div
+                              class="masonry-column-right masonry-column-half"
+                            >
+                              <a
+                                data-fancybox="post3"
+                                data-lightbox-type="comments"
+                                data-thumb="{{fetch_array_position post_images 2}}"
+                                href="{{fetch_array_position post_images 2}}"
+                                data-demo-href="{{fetch_array_position post_images 2}}"
+                              >
+                                {{#if check_media_type_video post_images 2}}
+                                <video
+                                  controls
+                                  src="{{fetch_array_position post_images 2}}"
+                                  data-demo-src="{{fetch_array_position post_images 2}}"
+                                ></video>
+                                {{else}}
+                                <img
+                                  src="{{fetch_array_position post_images 2}}"
+                                  data-demo-src="{{fetch_array_position post_images 2}}"
+                                  alt=""
+                                />
+                                {{/if}}
+                              </a>
+                              <a
+                                data-fancybox="post3"
+                                data-lightbox-type="comments"
+                                data-thumb="{{fetch_array_position post_images 3}}"
+                                href="{{fetch_array_position post_images 3}}"
+                                data-demo-href="{{fetch_array_position post_images 3}}"
+                              >
+                                {{#if check_media_type_video post_images 3}}
+                                <video
+                                  controls
+                                  src="{{fetch_array_position post_images 3}}"
+                                  data-demo-src="{{fetch_array_position post_images 3}}"
+                                ></video>
+                                {{else}}
+                                <img
+                                  src="{{fetch_array_position post_images 3}}"
+                                  data-demo-src="{{fetch_array_position post_images 3}}"
+                                  alt=""
+                                />
+                                {{/if}}
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        {{else if check_for_length_3 post_images}}
+                        <div class="post-image image-height-3">
+                          <!-- CSS masonry wrap -->
+                          <div class="masonry-grid">
+                            <!-- Left column -->
+                            <div
+                              class="masonry-column-left masonry-column-left-4"
+                            >
+                              <a
+                                data-fancybox="post3"
+                                data-lightbox-type="comments"
+                                data-thumb="{{fetch_array_position post_images 0}}"
+                                href="{{fetch_array_position post_images 0}}"
+                                data-demo-href="{{fetch_array_position post_images 0}}"
+                              >
+                                {{#if check_media_type_video post_images 0}}
+                                <video
+                                  controls
+                                  src="{{fetch_array_position post_images 0}}"
+                                  data-demo-src="{{fetch_array_position post_images 0}}"
+                                ></video>
+                                {{else}}
+                                <img
+                                  src="{{fetch_array_position post_images 0}}"
+                                  data-demo-src="{{fetch_array_position post_images 0}}"
+                                  alt=""
+                                />
+                                {{/if}}
+                              </a>
+                            </div>
+                            <!-- Right column -->
+                            <div
+                              class="masonry-column-right masonry-column-right-4"
+                            >
+                              <a
+                                data-fancybox="post3"
+                                data-lightbox-type="comments"
+                                data-thumb="{{fetch_array_position post_images 1}}"
+                                href="{{fetch_array_position post_images 1}}"
+                                data-demo-href="{{fetch_array_position post_images 1}}"
+                              >
+                                {{#if check_media_type_video post_images 1}}
+                                <video
+                                  controls
+                                  src="{{fetch_array_position post_images 1}}"
+                                  data-demo-src="{{fetch_array_position post_images 1}}"
+                                ></video>
+                                {{else}}
+                                <img
+                                  src="{{fetch_array_position post_images 1}}"
+                                  data-demo-src="{{fetch_array_position post_images 1}}"
+                                  alt=""
+                                />
+                                {{/if}}
+                              </a>
+                              <a
+                                data-fancybox="post3"
+                                data-lightbox-type="comments"
+                                data-thumb="{{fetch_array_position post_images 2}}"
+                                href="{{fetch_array_position post_images 2}}"
+                                data-demo-href="{{fetch_array_position post_images 2}}"
+                              >
+                                {{#if check_media_type_video post_images 2}}
+                                <video
+                                  controls
+                                  src="{{fetch_array_position post_images 2}}"
+                                  data-demo-src="{{fetch_array_position post_images 2}}"
+                                ></video>
+                                {{else}}
+                                <img
+                                  src="{{fetch_array_position post_images 2}}"
+                                  data-demo-src="{{fetch_array_position post_images 2}}"
+                                  alt=""
+                                />
+                                {{/if}}
+                              </a>
+                            </div>
+                            <!-- Post actions -->
+                            <!-- /includes/pages/feed/buttons/feed-post-actions.html -->
+                          </div>
+                        </div>
+                        {{else if check_for_length_2 post_images}}
+                        <div class="post-image">
+                          <!-- CSS masonry wrap -->
+                          <div class="masonry-grid">
+                            <!-- Left column -->
+                            <div
+                              class="masonry-column-left masonry-column-half"
+                            >
+                              <a
+                                data-fancybox="post3"
+                                data-lightbox-type="comments"
+                                data-thumb="{{fetch_array_position post_images 0}}"
+                                href="{{fetch_array_position post_images 0}}"
+                                data-demo-href="{{fetch_array_position post_images 0}}"
+                              >
+                                {{#if check_media_type_video post_images 0}}
+                                <video
+                                  controls
+                                  src="{{fetch_array_position post_images 0}}"
+                                  data-demo-src="{{fetch_array_position post_images 0}}"
+                                ></video>
+                                {{else}}
+                                <img
+                                  src="{{fetch_array_position post_images 0}}"
+                                  data-demo-src="{{fetch_array_position post_images 0}}"
+                                  alt=""
+                                />
+                                {{/if}}
+                              </a>
+                            </div>
+                            <!-- Right column -->
+                            <div
+                              class="masonry-column-right masonry-column-half"
+                            >
+                              <a
+                                data-fancybox="post3"
+                                data-lightbox-type="comments"
+                                data-thumb="{{fetch_array_position post_images 1}}"
+                                href="{{fetch_array_position post_images 1}}"
+                                data-demo-href="{{fetch_array_position post_images 1}}"
+                              >
+                                {{#if check_media_type_video post_images 1}}
+                                <video
+                                  controls
+                                  src="{{fetch_array_position post_images 1}}"
+                                  data-demo-src="{{fetch_array_position post_images 1}}"
+                                ></video>
+                                {{else}}
+                                <img
+                                  src="{{fetch_array_position post_images 1}}"
+                                  data-demo-src="{{fetch_array_position post_images 1}}"
+                                  alt=""
+                                />
+                                {{/if}}
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        {{else if check_for_length_1 post_images}}
+                        <div class="post-image">
+                          <div class="masonry-grid">
+                            <div class="masonry-column-1 height-image-1">
+                              <a
+                                data-fancybox="post3"
+                                data-lightbox-type="comments"
+                                data-thumb="{{fetch_array_position post_images 0}}"
+                                href="{{fetch_array_position post_images 0}}"
+                                data-demo-href="{{fetch_array_position post_images 0}}"
+                              >
+                                {{#if check_media_type_video post_images 0}}
+                                <video
+                                  controls
+                                  src="{{fetch_array_position post_images 0}}"
+                                  data-demo-src="{{fetch_array_position post_images 1}}"
+                                ></video>
+                                {{else}}
+                                <img
+                                  src="{{fetch_array_position post_images 0}}"
+                                  data-demo-src="{{fetch_array_position post_images 0}}"
+                                  alt=""
+                                />
+                                {{/if}}
+                              </a>
+                            </div>
+                          </div>
+                          <!-- CSS masonry wrap -->
+                        </div>
+                        {{/if}}
+                      </div>
+                      <p id="visible_post_content_{{feed_id}}" class="mt-10">
+                        {{{content}}}
+                      </p>
+                    </div>
+                    {{/if}}
+                    <!-- /Post body -->
+                    <!-- Post footer -->
+                    <div class="card-footer">
+                      <!-- Post statistics -->
+                      <div class="social-count">
+                        {{#if user_liked}}
+                        <div
+                          id="like_event"
+                          class="{{#if like_api_called}} is-disabled {{/if}} likes-count pointer"
+                        >
+                          <svg
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                            stroke="#ec3e37"
+                            stroke-width="2"
+                            fill="#ec3e37"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="css-i6dzq1 heart"
+                          >
+                            <path
+                              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                            ></path>
+                          </svg>
+                          <span class="color-red is-hidden-mobile"> Liked</span>
+                          <span id="like_count">({{total_likes}})</span>
+                        </div>
+                        {{else}}
+                        <div
+                          id="like_event"
+                          class="{{#if like_api_called}} is-disabled {{/if}} likes-count pointer"
+                        >
+                          <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.26.0/feather.min.js"></script> -->
+                          <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-heart"
+                          >
+                            <path
+                              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                            ></path>
+                          </svg>
+                          <span class="is-hidden-mobile"> Like </span>
+                          <span id="like_count">({{total_likes}})</span>
+                          <script>
+                            feather.replace();
+                          </script>
+                        </div>
+                        {{/if}}
+                        <div class="comments-count pointer">
+                          {{#if user_commented}}
+                          <a class="">
+                            <svg
+                              viewBox="0 0 24 24"
+                              width="24"
+                              height="24"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              fill="none"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="css-i6dzq1 highlighted__comment"
+                            >
+                              <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                              ></path>
+                            </svg>
+                            <span class="is-hidden-mobile">Comment </span>{{#if
+                            fetch_total_comments}}<span>({{fetch_total_comments}})</span>{{/if}}
+                          </a>
+                          {{else}}
+                          <a class="">
+                            <svg
+                              viewBox="0 0 24 24"
+                              width="24"
+                              height="24"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              fill="none"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="css-i6dzq1"
+                            >
+                              <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                              ></path>
+                            </svg>
+                            <span class="is-hidden-mobile">Comment</span> {{#if
+                            fetch_total_comments}}<span>({{fetch_total_comments}})</span>{{/if}}
+                          </a>
+                          {{/if}}
+                        </div>
+                        <div id="share_model" class="shares-count pointer">
+                          <a
+                            href="javascript:void(0);"
+                            class="small-fab share-fab modal-trigger"
+                            data-modal="share-modal"
+                          >
+                            <svg
+                              viewBox="0 0 24 24"
+                              width="24"
+                              height="24"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              fill="none"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="css-i6dzq1"
+                            >
+                              <circle cx="18" cy="5" r="3"></circle>
+                              <circle cx="6" cy="12" r="3"></circle>
+                              <circle cx="18" cy="19" r="3"></circle>
+                              <line
+                                x1="8.59"
+                                y1="13.51"
+                                x2="15.42"
+                                y2="17.49"
+                              ></line>
+                              <line
+                                x1="15.41"
+                                y1="6.51"
+                                x2="8.59"
+                                y2="10.49"
+                              ></line>
+                            </svg>
+                            <span class="is-hidden-mobile">Share</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /Post footer -->
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+              {{> Template.dynamic template=commenting}}
+
+            </div>
+            <div class="column is-3 left-sidebar">
+              <div class="content"></div>
+            </div>
+          </div>
+          <div id="share-modal-social" class="modal share-modal is-xsmall">
+            <div class="modal-background"></div>
+            <div class="modal-content fancybox-slide--html bg-tranparent">
+              <div class="fancybox-share fancybox-content width-100">
+                <h1>Share</h1>
+                <p>
+                  <a
+                    href="{{facebook_sharing_link}}"
+                    target="_blank"
+                    class="fancybox-share__button fancybox-share__button--fb color-white"
+                  >
+                    <i data-feather="facebook"></i><span> Facebook</span></a
+                  >
+                  <a
+                    href="{{twitter_sharing_link}}"
+                    target="_blank"
+                    class="fancybox-share__button fancybox-share__button--tw color-white"
+                  >
+                    <i data-feather="twitter"></i><span> Twitter</span></a
+                  >
+                  <a
+                    href="{{linkedin_sharing_link}}"
+                    target="_blank"
+                    class="fancybox-share__button fancybox-share__button--pt color-white"
+                  >
+                    <i data-feather="linkedin"></i><span> Linkedin</span></a
+                  >
+                </p>
+                <button
+                  type="button"
+                  data-fancybox-close=""
+                  class="fancybox-button fancybox-close-small close_share_button_model"
+                  title="Close"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="css-i6dzq1"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{> sAlert}}
+        <div
+          id="delete-post-modal"
+          class="modal upload-crop-cover-modal is-small has-light-bg"
+        >
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <div class="card">
+              <div
+                class="fc-content p-5 rounded fancybox-content"
+                style="display: inline-block"
+              >
+                <h2 class="title mb-10">Remove this Post?</h2>
+                <p id="remove_text">Sure, you want to remove this post?</p>
+                <p class="has-text-right pull-right buttons mt-10">
+                  <a
+                    data-value="0"
+                    data-fancybox-close=""
+                    class="button close-modal"
+                    >Cancel</a
+                  >
+                  <a
+                    data-value="1"
+                    data-fancybox-close=""
+                    id="confirm_post_removal"
+                    class="button is-solid accent-button raised"
+                    >Confirm
+                    <i
+                      id="remove_post_loader"
+                      class="fa display_hidden fa-spinner fa-pulse fa-1x fa-fw"
+                    ></i>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript">
+          try {
+            $.getScript("/js/stick_loader.js", function () {
+              $(".left-sidebar").StickySidebar({
+                additionalMarginTop: 100,
+              });
+            });
+
+            console.log("Loaded fine");
+          } catch (e) {
+            console.log("StickySidebar Exception");
+            console.log(e);
+            console.log("Error");
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+  {{> like_modals}}
+</template>

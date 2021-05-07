@@ -1,0 +1,824 @@
+<template name="static_feed">
+        <div class="basic-infos-wrapper">
+                <div class="is-profile-info">
+                   <div class="card is-post">
+                <!-- Main wrap -->
+                <div class="content-wrap">
+                   <!-- Header -->
+                   <div class="card-heading">
+                      <div class="user-block">
+                         <div class="image">
+                            <img src="https://via.placeholder.com/300x300" data-demo-src="../frontend-assets/images/avatars/elise.jpg" data-user-popover="2" alt="">
+                            <span class="indicator"></span>
+                         </div>
+                         <div class="user-info">
+                            <a href="#">
+                               Stella Bergmann<!--  <span class="date-span">5d</span> -->
+                            </a>
+                            <span class="time">Athlete</span>
+                            <span class="time">7d</span>
+                         </div>
+                      </div>
+                      <!-- Right side dropdown -->
+                      <!-- /includes/pages/feed/dropdowns/feed-post-dropdown.html -->
+                      <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                         <div>
+                            <div class="button">
+                               <i data-feather="more-vertical"></i>
+                            </div>
+                         </div>
+                         <div class="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                               <a href="#" class="dropdown-item">
+                                  <div class="media">
+                                     <i data-feather="edit-3"></i>
+                                     <div class="media-content">
+                                        <h3>Edit</h3>
+                                        <small>Edit this post</small>
+                                     </div>
+                                  </div>
+                               </a>
+                               <a href="#" class="dropdown-item">
+                                  <div class="media">
+                                     <i data-feather="trash"></i>
+                                     <div class="media-content">
+                                        <h3>Delete</h3>
+                                        <small>Remove this post</small>
+                                     </div>
+                                  </div>
+                               </a>
+                               <hr class="dropdown-divider">
+                               <a href="javascript:void(0);" class="dropdown-item small-fab share-fab modal-trigger"  data-modal="report_abuse-modal">
+                                  <div class="media">
+                                     <i data-feather="x"></i>
+                                     <div class="media-content">
+                                        <h3>Report abusee</h3>
+                                        <small>In case of inappropriate content.</small>
+                                     </div>
+                                  </div>
+                               </a>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <!-- Header -->
+                   <!-- Post body -->
+                   <div class="card-body">
+                      <!-- Post body text -->
+                      <div class="post-text">
+                         <p>Hey friends ! Iam back and i wanted to share with you some awesome pictures we took during our trip to Santa
+                            Monica. We had wonderful holidays at the beach. Kisses to all !
+                         </p>
+                         <!-- Featured image -->
+                         <div class="post-image">
+                            <!-- CSS masonry wrap -->
+                            <div class="masonry-grid">
+                               <!-- Left column -->
+                               <div class="masonry-column-left">
+                                  <a class="light-box">
+                                      <img class="light-img" data-num="0" src="https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" srcset="">
+                                  </a>
+                                  <a class="light-box">
+                                     <img class="light-img" data-num="1" src="../frontend-assets/images/demo/unsplash/3.jpg"  alt="">
+                                  </a>
+                                  
+                               </div>
+                                <div class="masonry-column-right">
+                                  <a class="light-box">
+                                      <img class="light-img" data-num="0" src="https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" srcset="">
+                                  </a>
+                                  <a class="light-box">
+                                     <img class="light-img" data-num="1" src="../frontend-assets/images/demo/unsplash/3.jpg"  alt="">
+                                  </a>
+                                  <a class="light-box">
+                                     <img class="light-img" data-num="1" src="../frontend-assets/images/demo/unsplash/1.jpg"  alt="">
+                                  </a>
+                                  
+                                  
+                               </div>
+                              
+                            </div>
+                         </div>
+                      </div>
+                      <!-- /Post body -->
+                      <div class="card-footer">
+                         <!-- Post statistics -->
+                         <div class="social-count">
+                            <div class="likes-count pointer">
+                               <i data-feather="heart"></i>
+                               <span>Like</span>
+                            </div>
+                            <div class="comments-count pointer">
+                               <a href="/feed-detail" class="">
+                               <i data-feather="message-circle"></i>
+                               <span>Comment</span>
+                               </a>
+                            </div>
+                            <div class="shares-count pointer">
+                               <a href="javascript:void(0);" class="small-fab share-fab modal-trigger" data-modal="share-modal">
+                               <i data-feather="share-2"></i>
+                               <span>Share</span>
+                               </a>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <!-- Main wrap -->
+                   <!-- Post #4 comments -->
+                   <!-- /Post #4 comments -->
+                </div>
+             </div>
+                   <div class="card is-post">
+                      <!-- Main wrap -->
+                      <div class="content-wrap">
+                         <!-- Post header -->
+                      
+                         <div class="card-heading">
+                            <!-- User meta -->
+                            <div class="user-block">
+                               <div class="image">
+                                  <img class="redirect_to_profile" src="../frontend-assets/images/avatars/bvf.jpeg" data-demo-src="../frontend-assets/images/avatars/bvf.jpeg" data-user-popover="1" alt="">
+                                  <span class="indicator"></span>
+                               </div>
+                               <div class="user-info">
+                                  <a class="redirect_to_profile">
+                                    Steve Kamp
+                                  </a>
+                                  <span class="time">ATHLETE</span>
+                                  <span class="time">2m</span>
+                               </div>
+                            </div>
+                            <!-- Right side dropdown -->
+                            <div id="feed_dropdown_feed_id_1587131448051" class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                               <div>
+                                  <div class="button">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                  </div>
+                               </div>
+                               <div class="dropdown-menu" role="menu">
+                                  <div class="dropdown-content">
+                                     <a class="dropdown-item">
+                                        <div id="edit_post" class="media">
+                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                           <div class="media-content">
+                                              <h3>Edit</h3>
+                                              <small>Edit this post</small>
+                                           </div>
+                                        </div>
+                                     </a>
+                                     <a class="dropdown-item">
+                                        <div id="delete_post" post_id="feed_id_1587131448051" class="media">
+                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                           <div class="media-content">
+                                              <h3>Delete</h3>
+                                              <small>Remove this post</small>
+                                           </div>
+                                        </div>
+                                     </a>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                         
+                         <!-- /Post header -->
+                         <!-- Post body -->
+                         <div class="card-body">
+                            <!-- Post body text -->
+                            <div id="hidden_text_field_feed_id_1587131448051" class="media-content display_hidden">
+                               <div class="field">
+                                  <p class="control">
+                                     <textarea id="updated_text_feed_id_1587131448051" class="textarea comment-textarea" rows="3" placeholder="Type here your thoughts ..."></textarea>
+                                  </p>
+                                  <div class="actions mt-10">
+                                     <div class="action is-auto">
+                                        <!--  <i data-feather="at-sign"></i> -->
+                                     </div>
+                                     <div class="action is-upload">
+                                        <!-- <i data-feather="camera"></i>
+                                           <input type="file"> -->
+                                     </div>
+                                     <a class="button is-solid primary-button raised" id="save_changes"><svg id="update_post_loaderfeed_id_1587131448051" class="svg-inline--fa fa-spinner fa-w-16 display_hidden fa-pulse fa-1x fa-fw" aria-hidden="true" data-prefix="fa" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path></svg><!-- <i id="update_post_loaderfeed_id_1587131448051" class="fa display_hidden fa-spinner fa-pulse fa-1x fa-fw"></i> --> Save changes </a>
+                                  </div>
+                               </div>
+                               <!-- Additional actions -->
+                            </div>
+                            
+                            <div class="post-text">
+                               <p id="visible_post_content_feed_id_1587131448051" class="mt-10"></p>
+                               <!-- Featured image -->
+                               <div class="post-image">
+                                  <!-- CSS masonry wrap -->
+                                  
+                                  <div class="masonry-grid">
+                                     <!-- Left column -->
+                                     <div class="masonry-column-half">
+                                        <a class="light-box">
+                                           <img class="light-img" data-num="0" src="https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" srcset="">
+                                        </a>
+                                        <a class="light-box">
+                                           <img class="light-img" data-num="1" src="../frontend-assets/images/demo/unsplash/3.jpg"  alt="">
+                                        </a>
+                                     </div>
+                                     <!-- Right column -->
+                                     <div class="masonry-column-half">
+                                        <a class="light-box">
+                                           <img class="light-img" data-num="0" src="https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" srcset="">
+                                        </a>
+                                        <a class="light-box">
+                                           <img class="light-img" data-num="1" src="../frontend-assets/images/demo/unsplash/3.jpg"  alt="">
+                                        </a>
+                                     </div>
+                                  </div>
+                                  
+                               </div>
+                            </div>
+                            
+                            <!-- /Post body -->
+                            <!-- Post footer -->
+                            <div class="card-footer">
+                               <!-- Post statistics -->
+                               <div class="social-count">
+                                  
+                                  <div id="like_event" class="likes-count pointer">
+                                     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.26.0/feather.min.js"></script> -->
+                                     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> <span> Like </span>
+                                     <script>
+                                        feather.replace()
+                                     </script>
+                                  </div>
+                                  
+                                  <div class="comments-count pointer">
+                                     <a href="#" class="">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                     <span>Comment</span>
+                                     </a>
+                                  </div>
+                                  <div class="comments-count pointer">
+                                     <a href="" class="share-fab modal-trigger" data-modal="share-modal-social">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                     <span>Share</span>
+                                     </a>
+                                  </div>
+                               </div>
+                            </div>
+                            <!-- /Post footer -->
+                         </div>
+                         <!-- /Main wrap -->
+                      </div>
+                   </div>
+                   <div class="card is-post">
+                      <!-- Main wrap -->
+                      <div class="content-wrap">
+                         <!-- Post header -->
+                         <div class="card-heading">
+                            <!-- User meta -->
+                            <div class="user-block">
+                               <div class="image">
+                                  <img class="redirect_to_profile" src="../frontend-assets/images/avatars/bvf.jpeg" data-demo-src="../frontend-assets/images/avatars/bvf.jpeg" data-user-popover="1" alt="">
+                                  <span class="indicator"></span>
+                               </div>
+                               <div class="user-info">
+                                  <a class="redirect_to_profile">
+                                    Steve Kamp
+                                  </a>
+                                  <span class="time">ATHLETE</span>
+                                  <span class="time">2m</span>
+                               </div>
+                            </div>
+                            <!-- Right side dropdown -->
+                            <div id="feed_dropdown_feed_id_1587131448051" class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                               <div>
+                                  <div class="button">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                  </div>
+                               </div>
+                               <div class="dropdown-menu" role="menu">
+                                  <div class="dropdown-content">
+                                     <a class="dropdown-item">
+                                        <div id="edit_post" class="media">
+                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                           <div class="media-content">
+                                              <h3>Edit</h3>
+                                              <small>Edit this post</small>
+                                           </div>
+                                        </div>
+                                     </a>
+                                     <a class="dropdown-item">
+                                        <div id="delete_post" post_id="feed_id_1587131448051" class="media">
+                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                           <div class="media-content">
+                                              <h3>Delete</h3>
+                                              <small>Remove this post</small>
+                                           </div>
+                                        </div>
+                                     </a>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                         
+                         <!-- /Post header -->
+                         <!-- Post body -->
+                         <div class="card-body">
+                            <!-- Post body text -->
+                            <div id="hidden_text_field_feed_id_1587132331541" class="media-content display_hidden">
+                               <div class="field">
+                                  <p class="control">
+                                     <textarea id="updated_text_feed_id_1587132331541" class="textarea comment-textarea" rows="3" placeholder="Type here your thoughts ..."></textarea>
+                                  </p>
+                                  <div class="actions mt-10">
+                                     <div class="action is-auto">
+                                        <!--  <i data-feather="at-sign"></i> -->
+                                     </div>
+                                     <div class="action is-upload">
+                                        <!-- <i data-feather="camera"></i>
+                                           <input type="file"> -->
+                                     </div>
+                                     <a class="button is-solid primary-button raised" id="save_changes"><svg id="update_post_loaderfeed_id_1587132331541" class="svg-inline--fa fa-spinner fa-w-16 display_hidden fa-pulse fa-1x fa-fw" aria-hidden="true" data-prefix="fa" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path></svg><!-- <i id="update_post_loaderfeed_id_1587132331541" class="fa display_hidden fa-spinner fa-pulse fa-1x fa-fw"></i> --> Save changes </a>
+                                  </div>
+                               </div>
+                               <!-- Additional actions -->
+                            </div>
+                            
+                            <div class="post-text">
+                               <p id="visible_post_content_feed_id_1587132331541" class="mt-10"></p>
+                               <!-- Featured image -->
+                               <div class="post-image">
+                                  <!-- CSS masonry wrap -->
+                                  
+                                  <div class="post-image">
+                                     <!-- CSS masonry wrap -->
+                                     <div class="masonry-grid">
+                                        <!-- Left column -->
+                                        <div class="masonry-column-left masonry-column-left-2">
+                                           <a class="light-box">
+                                              <img class="light-img" data-num="0" src="https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" srcset="">
+                                           </a>
+                                 
+                                        </div>
+                                        <!-- Right column -->
+                                        <div class="masonry-column-right masonry-column-right-2">
+                                           <a class="light-box">
+                                              <img class="light-img" data-num="1" src="../frontend-assets/images/demo/unsplash/3.jpg"  alt="">
+                                           </a>
+                                        </div>
+                                     </div>
+                                  </div>
+                                  
+                               </div>
+                            </div>
+                            
+                            <!-- /Post body -->
+                            <!-- Post footer -->
+                            <div class="card-footer">
+                               <!-- Post statistics -->
+                               <div class="social-count">
+                                  
+                                  <div id="like_event" class="likes-count pointer">
+                                     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.26.0/feather.min.js"></script> -->
+                                     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> <span> Like </span>
+                                     <script>
+                                        feather.replace()
+                                     </script>
+                                  </div>
+                                  
+                                  <div class="comments-count pointer">
+                                     <a href="" class="">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                     <span>Comment</span>
+                                     </a>
+                                  </div>
+                                  <div class="comments-count pointer">
+                                     <a href="" class="share-fab modal-trigger" data-modal="share-modal-social">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                     <span>Share</span>
+                                     </a>
+                                  </div>
+                                  <!-- <div class="shares-count pointer">
+                                     <div class="share-fab modal-trigger style-btn"  data-modal="share-modal-social">
+                                     <i data-feather="share-2"></i>
+                                     <span>Share</span>
+                                     </div>
+                                     </div> --> 
+                               </div>
+                            </div>
+                            <!-- /Post footer -->
+                         </div>
+                         <!-- /Main wrap -->
+                         <!-- Post #2 comments -->
+                         <!-- /Post #2 comments -->
+                      </div>
+                   </div>
+
+                   <div class="card is-post">
+                      <!-- Main wrap -->
+
+                      <div class="content-wrap">
+                         <!-- Post header -->
+                            <div class="card-heading">
+                               <!-- User meta -->
+                               <div class="user-block">
+                                  <div class="image">
+                                     <img class="redirect_to_profile" src="../frontend-assets/images/avatars/bvf.jpeg" data-demo-src="../frontend-assets/images/avatars/bvf.jpeg" data-user-popover="1" alt="">
+                                     <span class="indicator"></span>
+                                  </div>
+                                  <div class="user-info">
+                                     <a class="redirect_to_profile">
+                                       Steve Kamp
+                                     </a>
+                                     <span class="time">ATHLETE</span>
+                                     <span class="time">2m</span>
+                                  </div>
+                               </div>
+                               <!-- Right side dropdown -->
+                               <div id="feed_dropdown_feed_id_1587131448051" class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                                  <div>
+                                     <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                     </div>
+                                  </div>
+                                  <div class="dropdown-menu" role="menu">
+                                     <div class="dropdown-content">
+                                        <a class="dropdown-item">
+                                           <div id="edit_post" class="media">
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                              <div class="media-content">
+                                                 <h3>Edit</h3>
+                                                 <small>Edit this post</small>
+                                              </div>
+                                           </div>
+                                        </a>
+                                        <a class="dropdown-item">
+                                           <div id="delete_post" post_id="feed_id_1587131448051" class="media">
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                              <div class="media-content">
+                                                 <h3>Delete</h3>
+                                                 <small>Remove this post</small>
+                                              </div>
+                                           </div>
+                                        </a>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                          
+                         
+                         <!-- /Post header -->
+                         <!-- Post body -->
+                         <div class="card-body">
+                            <!-- Post body text -->
+                            <div id="hidden_text_field_feed_id_1587131406818" class="media-content display_hidden">
+                               <div class="field">
+                                  <p class="control">
+                                     <textarea id="updated_text_feed_id_1587131406818" class="textarea comment-textarea" rows="3" placeholder="Type here your thoughts ..."></textarea>
+                                  </p>
+                                  <div class="actions mt-10">
+                                     <div class="action is-auto">
+                                        <!--  <i data-feather="at-sign"></i> -->
+                                     </div>
+                                     <div class="action is-upload">
+                                        <!-- <i data-feather="camera"></i>
+                                           <input type="file"> -->
+                                     </div>
+                                     <a class="button is-solid primary-button raised" id="save_changes"><svg id="update_post_loaderfeed_id_1587131406818" class="svg-inline--fa fa-spinner fa-w-16 display_hidden fa-pulse fa-1x fa-fw" aria-hidden="true" data-prefix="fa" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path></svg><!-- <i id="update_post_loaderfeed_id_1587131406818" class="fa display_hidden fa-spinner fa-pulse fa-1x fa-fw"></i> --> Save changes </a>
+                                  </div>
+                               </div>
+                               <!-- Additional actions -->
+                            </div>
+                            
+                            <div class="post-text">
+                               <p id="visible_post_content_feed_id_1587131406818" class="mt-10"></p>
+                               <!-- Featured image -->
+                               <div class="post-image">
+                                  <!-- CSS masonry wrap -->
+                                  
+                                  <div class="post-image">
+                                     <!-- CSS masonry wrap -->
+                                      <a class="light-box">
+                                     <img class="light-img" data-num="1" src="https://ce5.s3.amazonaws.com/images/1587131377926_1587131377926.jpg"  alt="">
+                                  </a>
+                                     <!-- <a data-fancybox="post3" data-lightbox-type="comments" data-thumb="https://ce5.s3.amazonaws.com/images/1587131377926_1587131377926.jpg" href="https://ce5.s3.amazonaws.com/images/1587131377926_1587131377926.jpg" data-demo-href="https://ce5.s3.amazonaws.com/images/1587131377926_1587131377926.jpg">
+                                     <img src="https://ce5.s3.amazonaws.com/images/1587131377926_1587131377926.jpg" data-demo-src="https://ce5.s3.amazonaws.com/images/1587131377926_1587131377926.jpg" alt="">
+                                     </a> -->
+                                  </div>
+                                  
+                               </div>
+                            </div>
+                            
+                            <!-- /Post body -->
+                            <!-- Post footer -->
+                            <div class="card-footer">
+                               <!-- Post statistics -->
+                               <div class="social-count">
+                                  
+                                  <div id="like_event" class="likes-count pointer">
+                                     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.26.0/feather.min.js"></script> -->
+                                     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> <span> Like </span>
+                                     <script>
+                                        feather.replace()
+                                     </script>
+                                  </div>
+                                  
+                                  <div class="comments-count pointer">
+                                     <a href="" class="">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                     <span>Comment</span>
+                                     </a>
+                                  </div>
+                                  <div class="comments-count pointer">
+                                     <a href="" class="share-fab modal-trigger" data-modal="share-modal-social">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                     <span>Share</span>
+                                     </a>
+                                  </div>
+                                  <!-- <div class="shares-count pointer">
+                                     <div class="share-fab modal-trigger style-btn"  data-modal="share-modal-social">
+                                     <i data-feather="share-2"></i>
+                                     <span>Share</span>
+                                     </div>
+                                     </div> --> 
+                               </div>
+                            </div>
+                            <!-- /Post footer -->
+                         </div>
+                         <!-- /Main wrap -->
+                         <!-- Post #2 comments -->
+                         <!-- /Post #2 comments -->
+                      </div>
+                   </div>
+                   <div class="card is-post">
+                   <!-- Main wrap -->
+
+                   <div class="content-wrap">
+                      <!-- Post header -->
+                   
+                      <div class="card-heading">
+                               <!-- User meta -->
+                               <div class="user-block">
+                                  <div class="image">
+                                     <img class="redirect_to_profile" src="../frontend-assets/images/avatars/bvf.jpeg" data-demo-src="../frontend-assets/images/avatars/bvf.jpeg" data-user-popover="1" alt="">
+                                     <span class="indicator"></span>
+                                  </div>
+                                  <div class="user-info">
+                                     <a class="redirect_to_profile">
+                                       Steve Kamp
+                                     </a>
+                                     <span class="time">ATHLETE</span>
+                                     <span class="time">2m</span>
+                                  </div>
+                               </div>
+                               <!-- Right side dropdown -->
+                               <div id="feed_dropdown_feed_id_1587131448051" class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                                  <div>
+                                     <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                     </div>
+                                  </div>
+                                  <div class="dropdown-menu" role="menu">
+                                     <div class="dropdown-content">
+                                        <a class="dropdown-item">
+                                           <div id="edit_post" class="media">
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                              <div class="media-content">
+                                                 <h3>Edit</h3>
+                                                 <small>Edit this post</small>
+                                              </div>
+                                           </div>
+                                        </a>
+                                        <a class="dropdown-item">
+                                           <div id="delete_post" post_id="feed_id_1587131448051" class="media">
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                              <div class="media-content">
+                                                 <h3>Delete</h3>
+                                                 <small>Remove this post</small>
+                                              </div>
+                                           </div>
+                                        </a>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                      
+                      <!-- /Post header -->
+                      <!-- Post body -->
+                      <div class="card-body">
+                         <!-- Post body text -->
+                         <div class="post-text">
+                            <p id="visible_post_content_feed_id_1590655796732" class="mt-10">sdakjsndksadasankasnksfkhskfhkjf asdadadasdssdadad</p>
+                            <!-- Featured image -->
+                         </div>
+                         
+                         <!-- /Post body -->
+                         <!-- Post footer -->
+                         <div class="card-footer">
+                               <!-- Post statistics -->
+                               <div class="social-count">
+                                  
+                                  <div id="like_event" class="likes-count pointer">
+                                     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.26.0/feather.min.js"></script> -->
+                                     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> <span> Like </span>
+                                     <script>
+                                        feather.replace()
+                                     </script>
+                                  </div>
+                                  
+                                  <div class="comments-count pointer">
+                                     <a href="" class="">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                     <span>Comment</span>
+                                     </a>
+                                  </div>
+                                  <div class="comments-count pointer">
+                                     <a href="" class="share-fab modal-trigger" data-modal="share-modal-social">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                     <span>Share</span>
+                                     </a>
+                                  </div>
+                                  <!-- <div class="shares-count pointer">
+                                     <div class="share-fab modal-trigger style-btn"  data-modal="share-modal-social">
+                                     <i data-feather="share-2"></i>
+                                     <span>Share</span>
+                                     </div>
+                                     </div> --> 
+                               </div>
+                            </div>
+                         <!-- /Post footer -->
+                      </div>
+                      <!-- /Main wrap -->
+                      <!-- Post #2 comments -->
+                      <!-- /Post #2 comments -->
+                   </div>
+                </div>
+                 <div class="card is-post">
+                <!-- Main wrap -->
+                <div class="content-wrap">
+                   <!-- Post header -->
+                   <div class="card-heading">
+                      <!-- User meta -->
+                      <div class="user-block">
+                         <div class="image">
+                            <img src="../frontend-assets/images/avatars/dan.jpg" data-demo-src="../frontend-assets/images/avatars/dan.jpg" data-user-popover="1" alt="">
+                            <span class="indicator"></span>
+                         </div>
+                         <div class="user-info">
+                            <a href="#">
+                               Jerremy bridge
+                            </a>
+                            <span class="time">Head Coach</span>
+                            <span class="time">2d</span>
+                         </div>
+                      </div>
+                      <!-- Right side dropdown -->
+                      <!-- /includes/pages/feed/dropdowns/feed-post-dropdown.html -->
+                      <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                         <div>
+                            <div class="button">
+                               <i data-feather="more-vertical"></i>
+                            </div>
+                         </div>
+                         <div class="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                               <a href="#" class="dropdown-item">
+                                  <div class="media">
+                                     <i data-feather="edit-3"></i>
+                                     <div class="media-content">
+                                        <h3>Edit</h3>
+                                        <small>Edit this post</small>
+                                     </div>
+                                  </div>
+                               </a>
+                               <a href="#" class="dropdown-item">
+                                  <div class="media">
+                                     <i data-feather="trash"></i>
+                                     <div class="media-content">
+                                        <h3>Delete</h3>
+                                        <small>Remove this post</small>
+                                     </div>
+                                  </div>
+                               </a>
+                               <hr class="dropdown-divider">
+                               <a href="javascript:void(0);" class="dropdown-item small-fab share-fab modal-trigger"  data-modal="report_abuse-modal">
+                                  <div class="media">
+                                     <i data-feather="x"></i>
+                                     <div class="media-content">
+                                        <h3>Report abusee</h3>
+                                        <small>In case of inappropriate content.</small>
+                                     </div>
+                                  </div>
+                               </a>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <!-- /Post header -->
+                   <!-- Post body -->
+                   <div class="card-body">
+                      <!-- Post body text -->
+                      <div class="post-text">
+                         <p>Stephen Timothy Maar is one of Canada's most effective Wing Spikers! he played brilliantly versus 26 points.
+                         </p>
+                         <!-- Featured youtube video -->
+                         <div class="post-link is-video">
+                            <!-- Link image -->
+                            <div class="link-image">
+                               <img src="https://via.placeholder.com/300x300" data-demo-src="../frontend-assets/images/demo/video/volleyball.jpg" alt="">
+                               <div class="video-overlay"></div>
+                               <a class="video-button" data-fancybox="" href="https://www.youtube.com/watch?v=aDEa9PEiw6g">
+                               <img src="assets\images\icons\video\play.svg" alt="">
+                               </a>
+                            </div>
+                            <!-- Link content -->
+                            <div class="link-content">
+                               <h4>
+                                  <a href="#">Stephen Timothy Maar smashed the Ball away! | Men's Volleyball World Cup 2019 ...</a>
+                               </h4>
+                               <p>Stephen Timothy Maar is one of Canada's most effective Wing Spikers! he played brilliantly versus 26 points in total during the Men's </p>
+                               <small>Youtube.com</small>
+                            </div>
+                            <!-- Post actions -->
+                            <!-- /includes/pages/feed/buttons/feed-post-actions.html -->
+                         </div>
+                      </div>
+                      <!-- /Post body -->
+                      <!-- Post footer -->
+                      <div class="card-footer">
+                         <!-- Post statistics -->
+                         <div class="social-count">
+                            <div class="likes-count pointer">
+                               <i data-feather="heart"></i>
+                               <span>Like</span>
+                            </div>
+                            <div class="comments-count pointer">
+                               <a href="/feed-detail" class="">
+                               <i data-feather="message-circle"></i>
+                               <span>Comment</span>
+                               </a>
+                            </div>
+                            <div class="shares-count pointer">
+                               <a href="javascript:void(0);" class="small-fab share-fab modal-trigger" data-modal="share-modal">
+                               <i data-feather="share-2"></i>
+                               <span>Share</span>
+                               </a>
+                            </div>
+                         </div>
+                      </div>
+                      <!-- /Post footer -->
+                   </div>
+                   <!-- /Main wrap -->
+                   <!-- Post #2 comments -->
+                   <!-- /Post #2 comments -->
+                </div>
+             </div>
+                </div>
+             <!-- /Load more posts -->
+             </div>
+
+             <div class="popup" id="popup">
+                    <img id="popimg" data-pop="" src="" alt="">
+                    <span class="arrow-left" id="prev"><i class="fas fa-chevron-left"></i></span>
+                    <span class="arrow-right" id="next"><i class="fas fa-chevron-right"></i></span>
+                    <span class="close" id="close"><i class="far fa-times-circle"></i></span>
+                </div>
+         <script type="text/javascript">
+                var datanum = 0;
+                var $popimg = $('#popimg');
+                var imgclone = $(".light-img").clone();
+                $('document').ready(function () {
+                    $('.light-img').click(function () {
+                        datanum = $(this).data('num');
+                        var imgsrc = $(this).attr('src');
+                        $('#popup').fadeIn(800);
+                        $popimg.attr('src', imgsrc);
+                        $('#popup').css('display', 'block');
+        
+                    })
+        
+                })
+        
+        
+                $('#prev').click(function () {
+                    --datanum;
+                    if (datanum < 0) {
+                        datanum = imgclone.length - 1;
+                    }
+                    $popimg.slideDown(3000);
+                    $popimg.attr('src', imgclone[datanum].src);
+                })
+                $('#next').click(function () {
+                    ++datanum;
+                    if (datanum > 9) {
+                        datanum = imgclone.length - 10;
+                    }
+                    $popimg.attr('src', imgclone[datanum].src);
+                })
+        
+        
+                $('#close').click(function () {
+                    $('#popup').css('display', 'none');
+                })
+            </script>
+</template>

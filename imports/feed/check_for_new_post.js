@@ -1,0 +1,1 @@
+import './check_for_new_post.html';

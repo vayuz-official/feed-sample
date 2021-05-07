@@ -1,0 +1,61 @@
+<template name="shimmer_card">
+  <style type="text/css">
+    .inner-wrap .rect {
+    height: 170px;
+    width: 100%;
+    min-width: 100%;
+    border-radius: 4px;
+    margin: 0 auto 30px auto;
+}
+
+.grid-item .content-shape:first-child{
+    max-width: 50%;
+  }
+.grid-item  .content-shape:nth-child(2){
+max-width: 50%;
+  }
+  .grid-item  .content-shape:nth-child(3){
+max-width: 70%;
+  }
+  .grid-item .content-shape:nth-child(4){
+max-width: 70%;
+  }
+  .grid-item .content-shape:nth-child(5){
+    max-width: 14%;
+    height: 30px;
+  }
+  .placeload{
+    padding:20px;
+  }
+  </style>
+    <div class="">
+        <div class="questions-demo is-smaller">
+            <!-- Container -->
+            <div class="container">
+                <div id="questions-shadow-dom-stats" class="columns">
+                    <div class="column is-12">
+                        <!-- <div class="placeload questions-stats-placeload is-carousel"> -->
+                            <!-- <div class="grid-title">
+                                <div class="content-shape loads"></div>
+                            </div> -->
+                            <div class="placeload-grid">
+                                 <div class="placeload grid-item">
+                                    <div class="body">
+                                       <div class="inner-wrap">
+                                          <div class="rect loads"></div>
+                                          <div class="content-shape loads"></div>
+                                          <div class="content-shape loads"></div>
+                                          <div class="content-shape loads"></div>
+                                          <div class="content-shape loads"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+</template>

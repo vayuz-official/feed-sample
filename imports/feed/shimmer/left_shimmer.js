@@ -1,0 +1,1 @@
+import './left_shimmer.html';

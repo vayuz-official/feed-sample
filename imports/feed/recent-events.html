@@ -1,0 +1,78 @@
+<template name="recent_events">
+    <style type="text/css">
+        .card .card-body .add-friend-block{
+            padding: 0px !important
+        }
+    </style>
+    <div class="schedule is-hidden-mobile is-hidden questions-nav fixed-left-side"> <!--  -->
+        <div class="schedule-day-container hidden inner is-scrollable">
+            <div class="day-header day-header--large">
+                <div class="day-header-bg"></div>
+                <div class="day-header-close">
+                    <i data-feather="x"></i>
+                </div>
+                <div class="day-header-content">
+                    <div class="day-header-title">
+                        <div class="day-header-title-day">24</div>
+                        <div class="day-header-title-month">October</div>
+                    </div>
+                    <div class="day-header-event">Workout Session</div>
+                </div>
+            </div>
+            <div class="day-content has-slimscroll">
+                <h4>Event</h4>
+            </div>
+        </div>
+        <div class="schedule-calendar">
+            <div class="card-heading is-bordered">
+                    <h4><b>Today is <span>22 Nov</span></b> </h4>
+                </div>
+                <hr/>
+                <p class="text-center">
+                   Today's Event<span class="circle-event">1</span>
+                </p>
+           
+            <div class="next-fab is-hidden">
+                <i data-feather="chevron-down"></i>
+            </div>
+        </div>
+        <div class="schedule-divider is-hidden"></div>
+        <div class="schedule-events is-hidden">
+            <div class="schedule-events-title">
+                Upcoming events
+            </div>
+            <div class="schedule-event">
+                <div class="event-date green">2</div>
+                <div class="event-title">
+                    <span>Event 1</span>
+                    <span>07:30pm | Home</span>
+                </div>
+            </div>
+            <div class="schedule-event">
+                <div class="event-date purple">7</div>
+                <div class="event-title">
+                    <span>Event 2</span>
+                    <span>11:00am | St Luc Café</span>
+                </div>
+            </div>
+            <div class="schedule-event">
+                <div class="event-date green">22</div>
+                <div class="event-title">
+                    <span>Event 3</span>
+                    <span>03:00pm | Frank's </span>
+                </div>
+            </div>
+            <div class="schedule-event">
+                <div class="event-date primary">24</div>
+                <div class="event-title">
+                    <span>Event 4</span>
+                    <span>07:00am | Gold Gym</span>
+                </div>
+            </div>
+           
+            <div class="button-wrap">
+                <a class="button is-fullwidth has-icon"><i data-feather="plus"></i>New Event</a>
+            </div>
+        </div>
+    </div>
+</template>

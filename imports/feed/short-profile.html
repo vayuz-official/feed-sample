@@ -1,0 +1,158 @@
+<!-- coach  -->
+<template name="short_profile">
+  <style type="text/css">
+    .friend-card .friend-info h2{
+          margin-bottom: 5px;
+    }
+    .mb-10{
+        margin-bottom: 10px;  
+      }
+  </style>
+  {{#each fetch_logged_in_user}}   
+  <div class="is-ad">
+    <div class="card">
+      <div>
+        {{#if cover_image}}
+        <img class="cover-image-feed" src="{{cover_image}}" data-demo-src="{{cover_image}}" alt="{{name}}'s cover image ">
+        {{else}}
+        <img class="cover-image-feed" src="/frontend-assets/images/vu-cover-image.png" data-demo-src="/frontend-assets/images/vu-cover-image.png" alt="{{name}}'s cover image ">
+        {{/if}}
+      </div>
+      <div class="card-flex friend-card mtm-25">
+        <div class="img-container">
+          <img class="avatar" src="{{profile_picture}}" data-demo-src="{{profile_picture}}" alt="{{name}}'s Profile image'">
+
+     
+          <!-- <span class="country"></span> -->
+        </div>
+        <div class="friend-info">
+          <h2 class="user-name-left-side"><a class="hover-textcolor-for-all redirect_to_profile">{{name}}</a>
+{{#unless equals user_type 'ASSOCIATION'}}
+          {{#if premium_user}}
+            <img class="premium_badge" src="/frontend-assets/images/checked.png">
+          {{/if}}
+          {{/unless}}
+          </h2>
+          {{#if headline}} 
+          <p class="my-headline mb-0">{{headline}}</p>
+          {{/if}}
+          <p class="text-gray mb-10">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin icon-search-page">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            {{city}}, {{province}}
+          </p>
+        </div>
+        <div class="friend-stats">
+          {{#if equals user_type 'ASSOCIATION'}}
+          <div class="stat-block">
+            <label>Blogs</label>
+            <div class="stat-number">
+              <a href="/blogs/all">{{fetch_all_published_blogs user_id}}</a>
+            </div>
+          </div>
+          {{#if equals association_type 'ASSOCIATION_INSTITUTE'}}
+          <div class="stat-block">
+            <label>Athletes</label>
+            <div class="stat-number">
+              <a href="/association-committed-athlete/all">{{fetch_all_committed_athletes_count}}</a>
+            </div>
+          </div>
+          {{else if equals association_type 'ASSOCIATION_CLUB'}}
+          <div class="stat-block">
+            <label>Athletes</label>
+            <div class="stat-number">
+              <a href="/association-signed-athlete/all">{{fetch_all_signed_athletes_count}}</a>
+            </div>
+          </div>
+          {{/if}}
+          <div class="stat-block">
+            <label >Followers</label>
+            <div class="stat-number">
+              <a href="/association-followers">{{fetch_all_user_following_association}}</a>
+            </div>
+          </div>
+          {{else if equals user_type 'ATHLETE'}}
+            <div class="stat-block ">
+              <a>
+                <label>Groups</label>
+                <div class="stat-number pointer" title="Joined Group">
+                  <a href="/groups/all"> {{fetch_all_groups_where_user_is_member user_id}} </a>
+                </div>
+              </a>
+            </div>
+            <div class="stat-block ">
+              <a>
+                <label >Unites</label>
+                <div class="stat-number pointer">
+                  <a href="/connections/all">{{fetch_total_user_connections}}</a>
+                </div>
+              </a>
+            </div>
+            
+            <div class="stat-block ">
+              <a>
+                <label>Following</label>
+                <div class="stat-number pointer">
+                  <a href="/athlete-following">{{fetch_all_user_following}}</a>
+                </div>
+              </a>
+            </div>
+          {{else}}
+          {{#if check_user_type_athlete_or_retired}}
+            <div class="stat-block ">
+              <a>
+                <label>Following</label>
+                <div class="stat-number pointer">
+                  <a href="/following">{{fetch_all_user_following}}</a>
+                </div>
+              </a>
+            </div>
+          {{/if}}
+            <div class="stat-block ">
+             
+                <label >Blogs</label>
+                <div class="stat-number pointer">
+                  <a href="/blogs/all" class="hover-textcolor-for-all">{{fetch_all_published_blogs user_id}}</a>
+                </div>
+             
+            </div>
+          {{#if equals user_type 'REFEREE'}}
+          <div class="stat-block ">
+            
+              <label>Groups</label>
+              <div class="stat-number pointer">
+                <a href="/groups/all" class="hover-textcolor-for-all">{{fetch_all_groups_where_user_is_member user_id}}</a>
+              </div>
+            
+          </div>
+          {{/if}}
+            <div class="stat-block ">
+             
+                <label >Unites</label>
+                <div class="stat-number pointer">
+                 <a href="/connections/all" class="hover-textcolor-for-all"> {{fetch_total_user_connections}}</a>
+                </div>
+             
+            </div>
+          {{#if equals user_type 'COACH'}}
+          <div class="stat-block ">
+            
+              <label>Groups</label>
+              <div class="stat-number pointer">
+                <a href="/groups/all" class="hover-textcolor-for-all">{{fetch_all_groups_where_user_is_member user_id}}</a>
+              </div>
+            
+          </div>
+          {{/if}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  {{> left_shimmer}}
+  {{/each}}
+</template>
+
